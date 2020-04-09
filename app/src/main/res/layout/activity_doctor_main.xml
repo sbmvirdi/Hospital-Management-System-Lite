@@ -77,6 +77,32 @@
 
 
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/appointmentsCard"
+            android:id="@+id/seeroomscard"
+            android:layout_marginTop="10dp"
+            app:strokeColor="#66788F"
+            android:elevation="2dp"
+            app:strokeWidth="2dp"
+            app:cardCornerRadius="10dp"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/seeroomimage"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rooms_available"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
     </RelativeLayout>
 
 </ScrollView>

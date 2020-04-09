@@ -9,11 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.AvailableRooms"></activity>
+        <activity android:name=".User.SeeAppointments"></activity>
+        <activity android:name=".Doctor.AvailableRooms" />
         <activity android:name=".User.BookAppointment" />
-        <activity android:name=".User.UserMain" >
-
-        </activity>
+        <activity android:name=".User.UserMain"></activity>
         <activity android:name=".User.UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

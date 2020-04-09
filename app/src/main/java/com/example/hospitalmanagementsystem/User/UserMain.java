@@ -7,16 +7,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
-import com.example.hospitalmanagementsystem.Doctor.DoctorMain;
+import com.example.hospitalmanagementsystem.Doctor.AvailableRooms;
 import com.example.hospitalmanagementsystem.Doctor.SeeAppointment;
 import com.example.hospitalmanagementsystem.R;
 import com.example.hospitalmanagementsystem.Utils.Constants;
 
 public class UserMain extends AppCompatActivity {
 
-    private CardView appointmentsCard,seeroomscard;
+    private CardView appointmentsCard,seeappointmentscard;
     private TextView logout;
 
     @Override
@@ -24,8 +25,9 @@ public class UserMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
 
-        seeroomscard = findViewById(R.id.seeroomscard);
+
         appointmentsCard  = findViewById(R.id.appointmentsCard);
+        seeappointmentscard = findViewById(R.id.seeappointmentscard);
         logout = findViewById(R.id.logout);
 
         appointmentsCard.setOnClickListener(v->{
@@ -47,9 +49,10 @@ public class UserMain extends AppCompatActivity {
             finish();
         });
 
-        seeroomscard.setOnClickListener(v->{
-            Intent i = new Intent(UserMain.this, AvailableRooms.class);
+        seeappointmentscard.setOnClickListener(v -> {
+            Intent i = new Intent(UserMain.this, SeeAppointments.class);
             startActivity(i);
         });
+
     }
 }

@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DoctorMain extends AppCompatActivity {
 
-    private CardView appointmentsCard;
+    private CardView appointmentsCard,seeroomscard;
     private TextView logout;
     private HMSDatabase mDatabase;
 
@@ -33,6 +33,7 @@ public class DoctorMain extends AppCompatActivity {
 
         appointmentsCard = findViewById(R.id.appointmentsCard);
         logout = findViewById(R.id.logout);
+        seeroomscard = findViewById(R.id.seeroomscard);
 
         mDatabase  = new HMSDatabase(this);
 
@@ -58,6 +59,11 @@ public class DoctorMain extends AppCompatActivity {
 
         appointmentsCard.setOnClickListener(v->{
             Intent i = new Intent(DoctorMain.this,SeeAppointment.class);
+            startActivity(i);
+        });
+
+        seeroomscard.setOnClickListener(v->{
+            Intent i = new Intent(DoctorMain.this, AvailableRooms.class);
             startActivity(i);
         });
     }

@@ -85,7 +85,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_below="@+id/appointmentsCard"
-            android:id="@+id/seeroomscard"
+            android:id="@+id/seeappointmentscard"
             android:layout_marginTop="10dp"
             app:strokeColor="#66788F"
             android:elevation="2dp"
@@ -98,10 +98,10 @@
                 android:layout_height="match_parent">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:id="@+id/seeroomimage"
+                    android:id="@+id/seeappointments"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/rooms_available"
+                    android:src="@drawable/seeappointments"
                     android:contentDescription="@string/app_name" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>

@@ -1,4 +1,4 @@
-package com.example.hospitalmanagementsystem.Doctor;
+package com.example.hospitalmanagementsystem.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,9 +16,11 @@ import com.example.hospitalmanagementsystem.ModelClasses.Appointment;
 import com.example.hospitalmanagementsystem.R;
 import com.example.hospitalmanagementsystem.Utils.Constants;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
-public class SeeAppointment extends AppCompatActivity {
+public class SeeAppointments extends AppCompatActivity {
 
     private RecyclerView appointmentrec;
     private HMSDatabase mDatabase;
@@ -28,7 +29,7 @@ public class SeeAppointment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_appointment);
+        setContentView(R.layout.activity_see_appointments);
 
         appointmentrec = findViewById(R.id.appointmentrec);
         appointmentrec.setLayoutManager(new LinearLayoutManager(this));
@@ -36,15 +37,16 @@ public class SeeAppointment extends AppCompatActivity {
         noappointments = findViewById(R.id.noappointments);
 
         SharedPreferences preferences = getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        int uid = Integer.parseInt(preferences.getString("pmcid","0"));
+        int uid = Integer.parseInt(preferences.getString("uid","0"));
 
-        Log.e("PMC ID:",uid+"");
-        List<Appointment> list = mDatabase.getDoctorAppointments(uid);
+        List<Appointment> list = mDatabase.getUserAppointments(uid);
 
         if (list.isEmpty()){
             noappointments.setVisibility(View.VISIBLE);
         }
         AppointmentAdapter appointmentAdapter = new AppointmentAdapter(this,list);
         appointmentrec.setAdapter(appointmentAdapter);
+
+
     }
 }
