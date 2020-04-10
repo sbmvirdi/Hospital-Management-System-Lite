@@ -105,6 +105,7 @@ public class BookAppointment extends AppCompatActivity {
                 appointment.setPmcid(pmcid);
                 appointment.setUid(uid);
                 appointment.setTiming(timingindex);
+                appointment.setPname(nameString);
 
                 boolean AppointmentDone = mDatabase.setAppointment(appointment);
                 if (AppointmentDone){

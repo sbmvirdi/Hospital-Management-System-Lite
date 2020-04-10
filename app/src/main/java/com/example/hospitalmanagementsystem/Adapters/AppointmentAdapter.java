@@ -20,11 +20,13 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
     private Context mContext;
     private List<Appointment> mList;
+    private boolean isDoctor;
 
 
-    public AppointmentAdapter(Context mContext, List<Appointment> mList) {
+    public AppointmentAdapter(Context mContext, List<Appointment> mList, boolean isDoctor) {
         this.mContext = mContext;
         this.mList = mList;
+        this.isDoctor = isDoctor;
     }
 
     @NonNull
@@ -36,7 +38,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-     holder.setData(mList.get(position).getApid(),mList.get(position).getDname(),mList.get(position).getDept(),mList.get(position).getTiming());
+     holder.setData(mList.get(position).getApid(),mList.get(position).getDname(),mList.get(position).getDept(),mList.get(position).getTiming(),mList.get(position).getPname());
     }
 
     @Override
@@ -45,7 +47,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     }
 
     public class MyViewHolder  extends  RecyclerView.ViewHolder{
-        private TextView appid,dname,dept,timing;
+        private TextView appid,dname,dept,timing,dnamelabel;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,11 +56,20 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             appid = itemView.findViewById(R.id.appid);
             dname = itemView.findViewById(R.id.dname);
             dept = itemView.findViewById(R.id.dept);
+            dnamelabel = itemView.findViewById(R.id.dnamelabel);
         }
 
-        private void setData(int appid,String dname,String dept,int timing){
+        private void setData(int appid,String dname,String dept,int timing,String pname){
             this.appid.setText(appid+"");
-            this.dname.setText(dname);
+
+            if (isDoctor) {
+                this.dname.setText(pname);
+                this.dnamelabel.setText("Patient Name:");
+            }
+            else{
+                this.dname.setText(dname);
+                this.dnamelabel.setText("Doctor Name:");
+            }
             this.dept.setText(dept);
             if (timing == 1){
                 this.timing.setText("9 AM - 10 AM");

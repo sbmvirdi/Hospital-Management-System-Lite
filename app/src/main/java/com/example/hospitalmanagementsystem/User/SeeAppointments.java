@@ -44,7 +44,7 @@ public class SeeAppointments extends AppCompatActivity {
         if (list.isEmpty()){
             noappointments.setVisibility(View.VISIBLE);
         }
-        AppointmentAdapter appointmentAdapter = new AppointmentAdapter(this,list);
+        AppointmentAdapter appointmentAdapter = new AppointmentAdapter(this,list,false);
         appointmentrec.setAdapter(appointmentAdapter);
 
 
